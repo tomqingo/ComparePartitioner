@@ -1,0 +1,1196 @@
+12752
+14111
+PaToH cut size:535
+read_imbalance:0
+535 535
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
++                    _  __     _   _       ____                               + 
++                   | |/ /__ _| | | |_   _|  _ \ __ _ _ __                    + 
++                   | ' // _` | |_| | | | | |_) / _` | '__|                   + 
++                   | . \ (_| |  _  | |_| |  __/ (_| | |                      + 
++                   |_|\_\__,_|_| |_|\__, |_|   \__,_|_|                      + 
++                                    |___/                                    + 
++                 Karlsruhe Hypergraph Partitioning Framework                 + 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+*******************************************************************************
+*                            Partitioning Context                             *
+*******************************************************************************
+Partitioning Parameters:
+  Hypergraph:                         
+  Partition File:                     
+  Mode:                               direct
+  Objective:                          cut
+  k:                                  4
+  epsilon:                            0.05
+  seed:                               -1
+  # V-cycles:                         0
+  time limit:                         -1s
+  hyperedge size ignore threshold:    1000
+  hyperedge size removal threshold:   4294967295
+  use individual block weights:       false
+  L_opt:                              3188
+  L_max:                              3347
+-------------------------------------------------------------------------------
+Preprocessing Parameters:
+  enable deduplication:               false
+  enable min hash sparsifier:         true
+  enable community detection:         true
+-------------------------------------------------------------------------------
+MinHash Sparsifier Parameters:
+  max hyperedge size:                 1200
+  max cluster size:                   10
+  min cluster size:                   2
+  number of hash functions:           5
+  number of combined hash functions:  100
+  active at median net size >=:       28
+  sparsifier is active:               false
+-------------------------------------------------------------------------------
+Community Detection Parameters:
+  use community detection in IP:      true
+  maximum louvain-pass iterations:    100
+  minimum quality improvement:        0.0001
+  graph edge weight:                  uniform
+  reuse community structure:          false
+-------------------------------------------------------------------------------
+Coarsening Parameters:
+  Algorithm:                          ml_style
+  max-allowed-weight-multiplier:      1
+  contraction-limit-multiplier:       160
+  hypernode weight fraction:          0.0015625
+  max. allowed hypernode weight:      20
+  contraction limit:                  640
+  Rating Parameters:
+    Rating Function:                  heavy_edge
+    Use Community Structure:          true
+    Heavy Node Penalty:               no_penalty
+    Acceptance Policy:                best_prefer_unmatched
+    Partition Policy:                 normal
+    Fixed Vertex Acceptance Policy:   fixed_vertex_allowed
+-------------------------------------------------------------------------------
+Initial Partitioning Parameters:
+  # IP trials:                        20
+  Mode:                               recursive
+  Technique:                          multilevel
+  Algorithm:                          pool
+  Bin Packing algorithm:              worst_fit
+    early restart on infeasible:      true
+    late restart on infeasible:       true
+IP Coarsening:                        
+Coarsening Parameters:
+  Algorithm:                          ml_style
+  max-allowed-weight-multiplier:      1
+  contraction-limit-multiplier:       150
+  hypernode weight fraction:          determined before IP
+  max. allowed hypernode weight:      determined before IP
+  contraction limit:                  determined before IP
+  Rating Parameters:
+    Rating Function:                  heavy_edge
+    Use Community Structure:          true
+    Heavy Node Penalty:               no_penalty
+    Acceptance Policy:                best_prefer_unmatched
+    Partition Policy:                 normal
+    Fixed Vertex Acceptance Policy:   fixed_vertex_allowed
+IP Local Search:                      
+Local Search Parameters:
+  Algorithm:                          twoway_fm
+  iterations per level:               2147483647
+  stopping rule:                      simple
+  max. # fruitless moves:             50
+  Flow Refinement Parameters:
+    execution policy:                 UNDEFINED
+-------------------------------------------------------------------------------
+Local Search Parameters:
+  Algorithm:                          kway_fm_hyperflow_cutter
+  iterations per level:               2147483647
+  stopping rule:                      adaptive_opt
+  adaptive stopping alpha:            1
+  Flow Refinement Parameters:
+    execution policy:                 exponential
+-------------------------------------------------------------------------------
+ 
+******************************************************************************** 
+*                             Partitioning Result                              * 
+******************************************************************************** 
+Objectives: 
+Hyperedge Cut  (minimize) = 545 
+SOED           (minimize) = 1118 
+(k-1)          (minimize) = 573 
+Absorption     (maximize) = 13855.8 
+Imbalance                 = 0.0473651 
+
+Partition sizes and weights:  
+|part 0 | = 3339  w( 0 ) = 3339 
+|part 1 | = 2897  w( 1 ) = 2897 
+|part 2 | = 3177  w( 2 ) = 3177 
+|part 3 | = 3339  w( 3 ) = 3339 
+
+Timings: 
+Partition time                     = 2.25479 s 
+  + Preprocessing                  = 0.20299 s 
+    | min hash sparsifier          = 0 s 
+    | community detection          = 0.20299 s 
+  + Coarsening                     = 0.0260269 s 
+  + Initial Partitioning           = 0.744517 s 
+    + Coarsening                   = 0.00332924 s 
+          | bisection 1 ( 0 , 3 )        = 0.00216013 s 
+          | bisection 2 ( 2 , 3 )        = 0.000590832 s 
+          | bisection 3 ( 0 , 1 )        = 0.000578271 s 
+    + Initial Partitioning         = 0.668536 s 
+          | bisection 1 ( 0 , 3 )        = 0.280237 s 
+          | bisection 2 ( 2 , 3 )        = 0.205949 s 
+          | bisection 3 ( 0 , 1 )        = 0.18235 s 
+    + Local Search                 = 0.040113 s 
+          | bisection 1 ( 0 , 3 )        = 0.0384915 s 
+          | bisection 2 ( 2 , 3 )        = 0.000410354 s 
+          | bisection 3 ( 0 , 1 )        = 0.00121118 s 
+  + Local Search                   = 1.27277 s 
+           | flow refinement       = 1.07481  s 
+  + Postprocessing                 = 0 s 
+    | undo sparsifier              = 0 s 
+ 
+ 
+KaHyPar partition
+cut:545
+read_imbalance:0.0473651
+545 545
+19601
+19584
+PaToH cut size:878
+read_imbalance:0.014234
+878 878
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
++                    _  __     _   _       ____                               + 
++                   | |/ /__ _| | | |_   _|  _ \ __ _ _ __                    + 
++                   | ' // _` | |_| | | | | |_) / _` | '__|                   + 
++                   | . \ (_| |  _  | |_| |  __/ (_| | |                      + 
++                   |_|\_\__,_|_| |_|\__, |_|   \__,_|_|                      + 
++                                    |___/                                    + 
++                 Karlsruhe Hypergraph Partitioning Framework                 + 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+*******************************************************************************
+*                            Partitioning Context                             *
+*******************************************************************************
+Partitioning Parameters:
+  Hypergraph:                         
+  Partition File:                     
+  Mode:                               direct
+  Objective:                          cut
+  k:                                  4
+  epsilon:                            0.05
+  seed:                               -1
+  # V-cycles:                         0
+  time limit:                         -1s
+  hyperedge size ignore threshold:    1000
+  hyperedge size removal threshold:   4294967295
+  use individual block weights:       false
+  L_opt:                              4901
+  L_max:                              5146
+-------------------------------------------------------------------------------
+Preprocessing Parameters:
+  enable deduplication:               false
+  enable min hash sparsifier:         true
+  enable community detection:         true
+-------------------------------------------------------------------------------
+MinHash Sparsifier Parameters:
+  max hyperedge size:                 1200
+  max cluster size:                   10
+  min cluster size:                   2
+  number of hash functions:           5
+  number of combined hash functions:  100
+  active at median net size >=:       28
+  sparsifier is active:               false
+-------------------------------------------------------------------------------
+Community Detection Parameters:
+  use community detection in IP:      true
+  maximum louvain-pass iterations:    100
+  minimum quality improvement:        0.0001
+  graph edge weight:                  uniform
+  reuse community structure:          false
+-------------------------------------------------------------------------------
+Coarsening Parameters:
+  Algorithm:                          ml_style
+  max-allowed-weight-multiplier:      1
+  contraction-limit-multiplier:       160
+  hypernode weight fraction:          0.0015625
+  max. allowed hypernode weight:      31
+  contraction limit:                  640
+  Rating Parameters:
+    Rating Function:                  heavy_edge
+    Use Community Structure:          true
+    Heavy Node Penalty:               no_penalty
+    Acceptance Policy:                best_prefer_unmatched
+    Partition Policy:                 normal
+    Fixed Vertex Acceptance Policy:   fixed_vertex_allowed
+-------------------------------------------------------------------------------
+Initial Partitioning Parameters:
+  # IP trials:                        20
+  Mode:                               recursive
+  Technique:                          multilevel
+  Algorithm:                          pool
+  Bin Packing algorithm:              worst_fit
+    early restart on infeasible:      true
+    late restart on infeasible:       true
+IP Coarsening:                        
+Coarsening Parameters:
+  Algorithm:                          ml_style
+  max-allowed-weight-multiplier:      1
+  contraction-limit-multiplier:       150
+  hypernode weight fraction:          determined before IP
+  max. allowed hypernode weight:      determined before IP
+  contraction limit:                  determined before IP
+  Rating Parameters:
+    Rating Function:                  heavy_edge
+    Use Community Structure:          true
+    Heavy Node Penalty:               no_penalty
+    Acceptance Policy:                best_prefer_unmatched
+    Partition Policy:                 normal
+    Fixed Vertex Acceptance Policy:   fixed_vertex_allowed
+IP Local Search:                      
+Local Search Parameters:
+  Algorithm:                          twoway_fm
+  iterations per level:               2147483647
+  stopping rule:                      simple
+  max. # fruitless moves:             50
+  Flow Refinement Parameters:
+    execution policy:                 UNDEFINED
+-------------------------------------------------------------------------------
+Local Search Parameters:
+  Algorithm:                          kway_fm_hyperflow_cutter
+  iterations per level:               2147483647
+  stopping rule:                      adaptive_opt
+  adaptive stopping alpha:            1
+  Flow Refinement Parameters:
+    execution policy:                 exponential
+-------------------------------------------------------------------------------
+ 
+******************************************************************************** 
+*                             Partitioning Result                              * 
+******************************************************************************** 
+Objectives: 
+Hyperedge Cut  (minimize) = 718 
+SOED           (minimize) = 1521 
+(k-1)          (minimize) = 803 
+Absorption     (maximize) = 19311 
+Imbalance                 = 0.0499898 
+
+Partition sizes and weights:  
+|part 0 | = 5096  w( 0 ) = 5096 
+|part 1 | = 5146  w( 1 ) = 5146 
+|part 2 | = 4635  w( 2 ) = 4635 
+|part 3 | = 4724  w( 3 ) = 4724 
+
+Timings: 
+Partition time                     = 3.55381 s 
+  + Preprocessing                  = 0.475429 s 
+    | min hash sparsifier          = 0 s 
+    | community detection          = 0.475429 s 
+  + Coarsening                     = 0.0597071 s 
+  + Initial Partitioning           = 1.20899 s 
+    + Coarsening                   = 0.00754507 s 
+          | bisection 1 ( 0 , 3 )        = 0.00509163 s 
+          | bisection 2 ( 2 , 3 )        = 0.00120687 s 
+          | bisection 3 ( 0 , 1 )        = 0.00124656 s 
+    + Initial Partitioning         = 1.05704 s 
+          | bisection 1 ( 0 , 3 )        = 0.515661 s 
+          | bisection 2 ( 2 , 3 )        = 0.290474 s 
+          | bisection 3 ( 0 , 1 )        = 0.25091 s 
+    + Local Search                 = 0.0833161 s 
+          | bisection 1 ( 0 , 3 )        = 0.0807125 s 
+          | bisection 2 ( 2 , 3 )        = 0.00174856 s 
+          | bisection 3 ( 0 , 1 )        = 0.000855041 s 
+  + Local Search                   = 1.79616 s 
+           | flow refinement       = 1.05632  s 
+  + Postprocessing                 = 0 s 
+    | undo sparsifier              = 0 s 
+ 
+ 
+KaHyPar partition
+cut:718
+read_imbalance:0.0501505
+Balance not pass!
+718 718
+23136
+27401
+PaToH cut size:1830
+read_imbalance:0.00656985
+1830 1830
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
++                    _  __     _   _       ____                               + 
++                   | |/ /__ _| | | |_   _|  _ \ __ _ _ __                    + 
++                   | ' // _` | |_| | | | | |_) / _` | '__|                   + 
++                   | . \ (_| |  _  | |_| |  __/ (_| | |                      + 
++                   |_|\_\__,_|_| |_|\__, |_|   \__,_|_|                      + 
++                                    |___/                                    + 
++                 Karlsruhe Hypergraph Partitioning Framework                 + 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+*******************************************************************************
+*                            Partitioning Context                             *
+*******************************************************************************
+Partitioning Parameters:
+  Hypergraph:                         
+  Partition File:                     
+  Mode:                               direct
+  Objective:                          cut
+  k:                                  4
+  epsilon:                            0.05
+  seed:                               -1
+  # V-cycles:                         0
+  time limit:                         -1s
+  hyperedge size ignore threshold:    1000
+  hyperedge size removal threshold:   4294967295
+  use individual block weights:       false
+  L_opt:                              5784
+  L_max:                              6073
+-------------------------------------------------------------------------------
+Preprocessing Parameters:
+  enable deduplication:               false
+  enable min hash sparsifier:         true
+  enable community detection:         true
+-------------------------------------------------------------------------------
+MinHash Sparsifier Parameters:
+  max hyperedge size:                 1200
+  max cluster size:                   10
+  min cluster size:                   2
+  number of hash functions:           5
+  number of combined hash functions:  100
+  active at median net size >=:       28
+  sparsifier is active:               false
+-------------------------------------------------------------------------------
+Community Detection Parameters:
+  use community detection in IP:      true
+  maximum louvain-pass iterations:    100
+  minimum quality improvement:        0.0001
+  graph edge weight:                  uniform
+  reuse community structure:          false
+-------------------------------------------------------------------------------
+Coarsening Parameters:
+  Algorithm:                          ml_style
+  max-allowed-weight-multiplier:      1
+  contraction-limit-multiplier:       160
+  hypernode weight fraction:          0.0015625
+  max. allowed hypernode weight:      37
+  contraction limit:                  640
+  Rating Parameters:
+    Rating Function:                  heavy_edge
+    Use Community Structure:          true
+    Heavy Node Penalty:               no_penalty
+    Acceptance Policy:                best_prefer_unmatched
+    Partition Policy:                 normal
+    Fixed Vertex Acceptance Policy:   fixed_vertex_allowed
+-------------------------------------------------------------------------------
+Initial Partitioning Parameters:
+  # IP trials:                        20
+  Mode:                               recursive
+  Technique:                          multilevel
+  Algorithm:                          pool
+  Bin Packing algorithm:              worst_fit
+    early restart on infeasible:      true
+    late restart on infeasible:       true
+IP Coarsening:                        
+Coarsening Parameters:
+  Algorithm:                          ml_style
+  max-allowed-weight-multiplier:      1
+  contraction-limit-multiplier:       150
+  hypernode weight fraction:          determined before IP
+  max. allowed hypernode weight:      determined before IP
+  contraction limit:                  determined before IP
+  Rating Parameters:
+    Rating Function:                  heavy_edge
+    Use Community Structure:          true
+    Heavy Node Penalty:               no_penalty
+    Acceptance Policy:                best_prefer_unmatched
+    Partition Policy:                 normal
+    Fixed Vertex Acceptance Policy:   fixed_vertex_allowed
+IP Local Search:                      
+Local Search Parameters:
+  Algorithm:                          twoway_fm
+  iterations per level:               2147483647
+  stopping rule:                      simple
+  max. # fruitless moves:             50
+  Flow Refinement Parameters:
+    execution policy:                 UNDEFINED
+-------------------------------------------------------------------------------
+Local Search Parameters:
+  Algorithm:                          kway_fm_hyperflow_cutter
+  iterations per level:               2147483647
+  stopping rule:                      adaptive_opt
+  adaptive stopping alpha:            1
+  Flow Refinement Parameters:
+    execution policy:                 exponential
+-------------------------------------------------------------------------------
+ 
+******************************************************************************** 
+*                             Partitioning Result                              * 
+******************************************************************************** 
+Objectives: 
+Hyperedge Cut  (minimize) = 1700 
+SOED           (minimize) = 3711 
+(k-1)          (minimize) = 2011 
+Absorption     (maximize) = 26630.5 
+Imbalance                 = 0.0494467 
+
+Partition sizes and weights:  
+|part 0 | = 6070  w( 0 ) = 6070 
+|part 1 | = 5864  w( 1 ) = 5864 
+|part 2 | = 5143  w( 2 ) = 5143 
+|part 3 | = 6059  w( 3 ) = 6059 
+
+Timings: 
+Partition time                     = 5.39557 s 
+  + Preprocessing                  = 0.669153 s 
+    | min hash sparsifier          = 0 s 
+    | community detection          = 0.669153 s 
+  + Coarsening                     = 0.064723 s 
+  + Initial Partitioning           = 1.14456 s 
+    + Coarsening                   = 0.00584874 s 
+          | bisection 1 ( 0 , 3 )        = 0.00410425 s 
+          | bisection 2 ( 2 , 3 )        = 0.0008531 s 
+          | bisection 3 ( 0 , 1 )        = 0.00089139 s 
+    + Initial Partitioning         = 0.987289 s 
+          | bisection 1 ( 0 , 3 )        = 0.470581 s 
+          | bisection 2 ( 2 , 3 )        = 0.264529 s 
+          | bisection 3 ( 0 , 1 )        = 0.252179 s 
+    + Local Search                 = 0.0965551 s 
+          | bisection 1 ( 0 , 3 )        = 0.089321 s 
+          | bisection 2 ( 2 , 3 )        = 0.0036248 s 
+          | bisection 3 ( 0 , 1 )        = 0.00360928 s 
+  + Local Search                   = 3.49967 s 
+           | flow refinement       = 2.75403  s 
+  + Postprocessing                 = 0 s 
+    | undo sparsifier              = 0 s 
+ 
+ 
+KaHyPar partition
+cut:1700
+read_imbalance:0.0494467
+1700 1700
+27507
+31970
+PaToH cut size:1815
+read_imbalance:0.00323554
+1815 1815
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
++                    _  __     _   _       ____                               + 
++                   | |/ /__ _| | | |_   _|  _ \ __ _ _ __                    + 
++                   | ' // _` | |_| | | | | |_) / _` | '__|                   + 
++                   | . \ (_| |  _  | |_| |  __/ (_| | |                      + 
++                   |_|\_\__,_|_| |_|\__, |_|   \__,_|_|                      + 
++                                    |___/                                    + 
++                 Karlsruhe Hypergraph Partitioning Framework                 + 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+*******************************************************************************
+*                            Partitioning Context                             *
+*******************************************************************************
+Partitioning Parameters:
+  Hypergraph:                         
+  Partition File:                     
+  Mode:                               direct
+  Objective:                          cut
+  k:                                  4
+  epsilon:                            0.05
+  seed:                               -1
+  # V-cycles:                         0
+  time limit:                         -1s
+  hyperedge size ignore threshold:    1000
+  hyperedge size removal threshold:   4294967295
+  use individual block weights:       false
+  L_opt:                              6877
+  L_max:                              7220
+-------------------------------------------------------------------------------
+Preprocessing Parameters:
+  enable deduplication:               false
+  enable min hash sparsifier:         true
+  enable community detection:         true
+-------------------------------------------------------------------------------
+MinHash Sparsifier Parameters:
+  max hyperedge size:                 1200
+  max cluster size:                   10
+  min cluster size:                   2
+  number of hash functions:           5
+  number of combined hash functions:  100
+  active at median net size >=:       28
+  sparsifier is active:               false
+-------------------------------------------------------------------------------
+Community Detection Parameters:
+  use community detection in IP:      true
+  maximum louvain-pass iterations:    100
+  minimum quality improvement:        0.0001
+  graph edge weight:                  uniform
+  reuse community structure:          false
+-------------------------------------------------------------------------------
+Coarsening Parameters:
+  Algorithm:                          ml_style
+  max-allowed-weight-multiplier:      1
+  contraction-limit-multiplier:       160
+  hypernode weight fraction:          0.0015625
+  max. allowed hypernode weight:      43
+  contraction limit:                  640
+  Rating Parameters:
+    Rating Function:                  heavy_edge
+    Use Community Structure:          true
+    Heavy Node Penalty:               no_penalty
+    Acceptance Policy:                best_prefer_unmatched
+    Partition Policy:                 normal
+    Fixed Vertex Acceptance Policy:   fixed_vertex_allowed
+-------------------------------------------------------------------------------
+Initial Partitioning Parameters:
+  # IP trials:                        20
+  Mode:                               recursive
+  Technique:                          multilevel
+  Algorithm:                          pool
+  Bin Packing algorithm:              worst_fit
+    early restart on infeasible:      true
+    late restart on infeasible:       true
+IP Coarsening:                        
+Coarsening Parameters:
+  Algorithm:                          ml_style
+  max-allowed-weight-multiplier:      1
+  contraction-limit-multiplier:       150
+  hypernode weight fraction:          determined before IP
+  max. allowed hypernode weight:      determined before IP
+  contraction limit:                  determined before IP
+  Rating Parameters:
+    Rating Function:                  heavy_edge
+    Use Community Structure:          true
+    Heavy Node Penalty:               no_penalty
+    Acceptance Policy:                best_prefer_unmatched
+    Partition Policy:                 normal
+    Fixed Vertex Acceptance Policy:   fixed_vertex_allowed
+IP Local Search:                      
+Local Search Parameters:
+  Algorithm:                          twoway_fm
+  iterations per level:               2147483647
+  stopping rule:                      simple
+  max. # fruitless moves:             50
+  Flow Refinement Parameters:
+    execution policy:                 UNDEFINED
+-------------------------------------------------------------------------------
+Local Search Parameters:
+  Algorithm:                          kway_fm_hyperflow_cutter
+  iterations per level:               2147483647
+  stopping rule:                      adaptive_opt
+  adaptive stopping alpha:            1
+  Flow Refinement Parameters:
+    execution policy:                 exponential
+-------------------------------------------------------------------------------
+ 
+******************************************************************************** 
+*                             Partitioning Result                              * 
+******************************************************************************** 
+Objectives: 
+Hyperedge Cut  (minimize) = 1627 
+SOED           (minimize) = 3467 
+(k-1)          (minimize) = 1840 
+Absorption     (maximize) = 31064.1 
+Imbalance                 = 0.0382434 
+
+Partition sizes and weights:  
+|part 0 | = 7140  w( 0 ) = 7140 
+|part 1 | = 6281  w( 1 ) = 6281 
+|part 2 | = 7027  w( 2 ) = 7027 
+|part 3 | = 7059  w( 3 ) = 7059 
+
+Timings: 
+Partition time                     = 5.85246 s 
+  + Preprocessing                  = 0.809065 s 
+    | min hash sparsifier          = 0 s 
+    | community detection          = 0.809065 s 
+  + Coarsening                     = 0.0732878 s 
+  + Initial Partitioning           = 1.24796 s 
+    + Coarsening                   = 0.00707629 s 
+          | bisection 1 ( 0 , 3 )        = 0.00504264 s 
+          | bisection 2 ( 2 , 3 )        = 0.000905012 s 
+          | bisection 3 ( 0 , 1 )        = 0.00112864 s 
+    + Initial Partitioning         = 1.11093 s 
+          | bisection 1 ( 0 , 3 )        = 0.482125 s 
+          | bisection 2 ( 2 , 3 )        = 0.307833 s 
+          | bisection 3 ( 0 , 1 )        = 0.320971 s 
+    + Local Search                 = 0.0725326 s 
+          | bisection 1 ( 0 , 3 )        = 0.0657149 s 
+          | bisection 2 ( 2 , 3 )        = 0.00399632 s 
+          | bisection 3 ( 0 , 1 )        = 0.00282139 s 
+  + Local Search                   = 3.70283 s 
+           | flow refinement       = 3.0831  s 
+  + Postprocessing                 = 0 s 
+    | undo sparsifier              = 0 s 
+ 
+ 
+KaHyPar partition
+cut:1627
+read_imbalance:0.0382812
+1627 1627
+29347
+28446
+PaToH cut size:3113
+read_imbalance:0.00957508
+3113 3113
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
++                    _  __     _   _       ____                               + 
++                   | |/ /__ _| | | |_   _|  _ \ __ _ _ __                    + 
++                   | ' // _` | |_| | | | | |_) / _` | '__|                   + 
++                   | . \ (_| |  _  | |_| |  __/ (_| | |                      + 
++                   |_|\_\__,_|_| |_|\__, |_|   \__,_|_|                      + 
++                                    |___/                                    + 
++                 Karlsruhe Hypergraph Partitioning Framework                 + 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+*******************************************************************************
+*                            Partitioning Context                             *
+*******************************************************************************
+Partitioning Parameters:
+  Hypergraph:                         
+  Partition File:                     
+  Mode:                               direct
+  Objective:                          cut
+  k:                                  4
+  epsilon:                            0.05
+  seed:                               -1
+  # V-cycles:                         0
+  time limit:                         -1s
+  hyperedge size ignore threshold:    1000
+  hyperedge size removal threshold:   4294967295
+  use individual block weights:       false
+  L_opt:                              7337
+  L_max:                              7703
+-------------------------------------------------------------------------------
+Preprocessing Parameters:
+  enable deduplication:               false
+  enable min hash sparsifier:         true
+  enable community detection:         true
+-------------------------------------------------------------------------------
+MinHash Sparsifier Parameters:
+  max hyperedge size:                 1200
+  max cluster size:                   10
+  min cluster size:                   2
+  number of hash functions:           5
+  number of combined hash functions:  100
+  active at median net size >=:       28
+  sparsifier is active:               false
+-------------------------------------------------------------------------------
+Community Detection Parameters:
+  use community detection in IP:      true
+  maximum louvain-pass iterations:    100
+  minimum quality improvement:        0.0001
+  graph edge weight:                  uniform
+  reuse community structure:          false
+-------------------------------------------------------------------------------
+Coarsening Parameters:
+  Algorithm:                          ml_style
+  max-allowed-weight-multiplier:      1
+  contraction-limit-multiplier:       160
+  hypernode weight fraction:          0.0015625
+  max. allowed hypernode weight:      46
+  contraction limit:                  640
+  Rating Parameters:
+    Rating Function:                  heavy_edge
+    Use Community Structure:          true
+    Heavy Node Penalty:               no_penalty
+    Acceptance Policy:                best_prefer_unmatched
+    Partition Policy:                 normal
+    Fixed Vertex Acceptance Policy:   fixed_vertex_allowed
+-------------------------------------------------------------------------------
+Initial Partitioning Parameters:
+  # IP trials:                        20
+  Mode:                               recursive
+  Technique:                          multilevel
+  Algorithm:                          pool
+  Bin Packing algorithm:              worst_fit
+    early restart on infeasible:      true
+    late restart on infeasible:       true
+IP Coarsening:                        
+Coarsening Parameters:
+  Algorithm:                          ml_style
+  max-allowed-weight-multiplier:      1
+  contraction-limit-multiplier:       150
+  hypernode weight fraction:          determined before IP
+  max. allowed hypernode weight:      determined before IP
+  contraction limit:                  determined before IP
+  Rating Parameters:
+    Rating Function:                  heavy_edge
+    Use Community Structure:          true
+    Heavy Node Penalty:               no_penalty
+    Acceptance Policy:                best_prefer_unmatched
+    Partition Policy:                 normal
+    Fixed Vertex Acceptance Policy:   fixed_vertex_allowed
+IP Local Search:                      
+Local Search Parameters:
+  Algorithm:                          twoway_fm
+  iterations per level:               2147483647
+  stopping rule:                      simple
+  max. # fruitless moves:             50
+  Flow Refinement Parameters:
+    execution policy:                 UNDEFINED
+-------------------------------------------------------------------------------
+Local Search Parameters:
+  Algorithm:                          kway_fm_hyperflow_cutter
+  iterations per level:               2147483647
+  stopping rule:                      adaptive_opt
+  adaptive stopping alpha:            1
+  Flow Refinement Parameters:
+    execution policy:                 exponential
+-------------------------------------------------------------------------------
+ 
+******************************************************************************** 
+*                             Partitioning Result                              * 
+******************************************************************************** 
+Objectives: 
+Hyperedge Cut  (minimize) = 2955 
+SOED           (minimize) = 6733 
+(k-1)          (minimize) = 3778 
+Absorption     (maximize) = 27483.2 
+Imbalance                 = 0.0441597 
+
+Partition sizes and weights:  
+|part 0 | = 7188  w( 0 ) = 7188 
+|part 1 | = 7661  w( 1 ) = 7661 
+|part 2 | = 6837  w( 2 ) = 6837 
+|part 3 | = 7661  w( 3 ) = 7661 
+
+Timings: 
+Partition time                     = 8.89535 s 
+  + Preprocessing                  = 0.749473 s 
+    | min hash sparsifier          = 0 s 
+    | community detection          = 0.749473 s 
+  + Coarsening                     = 0.0922837 s 
+  + Initial Partitioning           = 1.49258 s 
+    + Coarsening                   = 0.00922694 s 
+          | bisection 1 ( 0 , 3 )        = 0.00679749 s 
+          | bisection 2 ( 2 , 3 )        = 0.00112729 s 
+          | bisection 3 ( 0 , 1 )        = 0.00130216 s 
+    + Initial Partitioning         = 1.22862 s 
+          | bisection 1 ( 0 , 3 )        = 0.646774 s 
+          | bisection 2 ( 2 , 3 )        = 0.320323 s 
+          | bisection 3 ( 0 , 1 )        = 0.26152 s 
+    + Local Search                 = 0.166443 s 
+          | bisection 1 ( 0 , 3 )        = 0.160727 s 
+          | bisection 2 ( 2 , 3 )        = 0.00396036 s 
+          | bisection 3 ( 0 , 1 )        = 0.00175582 s 
+  + Local Search                   = 6.54033 s 
+           | flow refinement       = 5.04771  s 
+  + Postprocessing                 = 0 s 
+    | undo sparsifier              = 0 s 
+ 
+ 
+KaHyPar partition
+cut:2955
+read_imbalance:0.0441953
+2955 2955
+32498
+34826
+PaToH cut size:1542
+read_imbalance:0.0131085
+1542 1542
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
++                    _  __     _   _       ____                               + 
++                   | |/ /__ _| | | |_   _|  _ \ __ _ _ __                    + 
++                   | ' // _` | |_| | | | | |_) / _` | '__|                   + 
++                   | . \ (_| |  _  | |_| |  __/ (_| | |                      + 
++                   |_|\_\__,_|_| |_|\__, |_|   \__,_|_|                      + 
++                                    |___/                                    + 
++                 Karlsruhe Hypergraph Partitioning Framework                 + 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+*******************************************************************************
+*                            Partitioning Context                             *
+*******************************************************************************
+Partitioning Parameters:
+  Hypergraph:                         
+  Partition File:                     
+  Mode:                               direct
+  Objective:                          cut
+  k:                                  4
+  epsilon:                            0.05
+  seed:                               -1
+  # V-cycles:                         0
+  time limit:                         -1s
+  hyperedge size ignore threshold:    1000
+  hyperedge size removal threshold:   4294967295
+  use individual block weights:       false
+  L_opt:                              8125
+  L_max:                              8531
+-------------------------------------------------------------------------------
+Preprocessing Parameters:
+  enable deduplication:               false
+  enable min hash sparsifier:         true
+  enable community detection:         true
+-------------------------------------------------------------------------------
+MinHash Sparsifier Parameters:
+  max hyperedge size:                 1200
+  max cluster size:                   10
+  min cluster size:                   2
+  number of hash functions:           5
+  number of combined hash functions:  100
+  active at median net size >=:       28
+  sparsifier is active:               false
+-------------------------------------------------------------------------------
+Community Detection Parameters:
+  use community detection in IP:      true
+  maximum louvain-pass iterations:    100
+  minimum quality improvement:        0.0001
+  graph edge weight:                  uniform
+  reuse community structure:          false
+-------------------------------------------------------------------------------
+Coarsening Parameters:
+  Algorithm:                          ml_style
+  max-allowed-weight-multiplier:      1
+  contraction-limit-multiplier:       160
+  hypernode weight fraction:          0.0015625
+  max. allowed hypernode weight:      51
+  contraction limit:                  640
+  Rating Parameters:
+    Rating Function:                  heavy_edge
+    Use Community Structure:          true
+    Heavy Node Penalty:               no_penalty
+    Acceptance Policy:                best_prefer_unmatched
+    Partition Policy:                 normal
+    Fixed Vertex Acceptance Policy:   fixed_vertex_allowed
+-------------------------------------------------------------------------------
+Initial Partitioning Parameters:
+  # IP trials:                        20
+  Mode:                               recursive
+  Technique:                          multilevel
+  Algorithm:                          pool
+  Bin Packing algorithm:              worst_fit
+    early restart on infeasible:      true
+    late restart on infeasible:       true
+IP Coarsening:                        
+Coarsening Parameters:
+  Algorithm:                          ml_style
+  max-allowed-weight-multiplier:      1
+  contraction-limit-multiplier:       150
+  hypernode weight fraction:          determined before IP
+  max. allowed hypernode weight:      determined before IP
+  contraction limit:                  determined before IP
+  Rating Parameters:
+    Rating Function:                  heavy_edge
+    Use Community Structure:          true
+    Heavy Node Penalty:               no_penalty
+    Acceptance Policy:                best_prefer_unmatched
+    Partition Policy:                 normal
+    Fixed Vertex Acceptance Policy:   fixed_vertex_allowed
+IP Local Search:                      
+Local Search Parameters:
+  Algorithm:                          twoway_fm
+  iterations per level:               2147483647
+  stopping rule:                      simple
+  max. # fruitless moves:             50
+  Flow Refinement Parameters:
+    execution policy:                 UNDEFINED
+-------------------------------------------------------------------------------
+Local Search Parameters:
+  Algorithm:                          kway_fm_hyperflow_cutter
+  iterations per level:               2147483647
+  stopping rule:                      adaptive_opt
+  adaptive stopping alpha:            1
+  Flow Refinement Parameters:
+    execution policy:                 exponential
+-------------------------------------------------------------------------------
+ 
+******************************************************************************** 
+*                             Partitioning Result                              * 
+******************************************************************************** 
+Objectives: 
+Hyperedge Cut  (minimize) = 1826 
+SOED           (minimize) = 4322 
+(k-1)          (minimize) = 2496 
+Absorption     (maximize) = 34208.2 
+Imbalance                 = 0.0416 
+
+Partition sizes and weights:  
+|part 0 | = 7953  w( 0 ) = 7953 
+|part 1 | = 8463  w( 1 ) = 8463 
+|part 2 | = 7619  w( 2 ) = 7619 
+|part 3 | = 8463  w( 3 ) = 8463 
+
+Timings: 
+Partition time                     = 7.15256 s 
+  + Preprocessing                  = 1.05481 s 
+    | min hash sparsifier          = 0 s 
+    | community detection          = 1.05481 s 
+  + Coarsening                     = 0.0953717 s 
+  + Initial Partitioning           = 1.59428 s 
+    + Coarsening                   = 0.00819478 s 
+          | bisection 1 ( 0 , 3 )        = 0.00575281 s 
+          | bisection 2 ( 2 , 3 )        = 0.00118145 s 
+          | bisection 3 ( 0 , 1 )        = 0.00126052 s 
+    + Initial Partitioning         = 1.36001 s 
+          | bisection 1 ( 0 , 3 )        = 0.703844 s 
+          | bisection 2 ( 2 , 3 )        = 0.304233 s 
+          | bisection 3 ( 0 , 1 )        = 0.351928 s 
+    + Local Search                 = 0.149038 s 
+          | bisection 1 ( 0 , 3 )        = 0.14597 s 
+          | bisection 2 ( 2 , 3 )        = 0.00113347 s 
+          | bisection 3 ( 0 , 1 )        = 0.00193451 s 
+  + Local Search                   = 4.38577 s 
+           | flow refinement       = 3.27077  s 
+  + Postprocessing                 = 0 s 
+    | undo sparsifier              = 0 s 
+ 
+ 
+KaHyPar partition
+cut:1826
+read_imbalance:0.0416641
+1826 1826
+45926
+48117
+PaToH cut size:2375
+read_imbalance:0.00248225
+2375 2375
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
++                    _  __     _   _       ____                               + 
++                   | |/ /__ _| | | |_   _|  _ \ __ _ _ __                    + 
++                   | ' // _` | |_| | | | | |_) / _` | '__|                   + 
++                   | . \ (_| |  _  | |_| |  __/ (_| | |                      + 
++                   |_|\_\__,_|_| |_|\__, |_|   \__,_|_|                      + 
++                                    |___/                                    + 
++                 Karlsruhe Hypergraph Partitioning Framework                 + 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+*******************************************************************************
+*                            Partitioning Context                             *
+*******************************************************************************
+Partitioning Parameters:
+  Hypergraph:                         
+  Partition File:                     
+  Mode:                               direct
+  Objective:                          cut
+  k:                                  4
+  epsilon:                            0.05
+  seed:                               -1
+  # V-cycles:                         0
+  time limit:                         -1s
+  hyperedge size ignore threshold:    1000
+  hyperedge size removal threshold:   4294967295
+  use individual block weights:       false
+  L_opt:                              11482
+  L_max:                              12056
+-------------------------------------------------------------------------------
+Preprocessing Parameters:
+  enable deduplication:               false
+  enable min hash sparsifier:         true
+  enable community detection:         true
+-------------------------------------------------------------------------------
+MinHash Sparsifier Parameters:
+  max hyperedge size:                 1200
+  max cluster size:                   10
+  min cluster size:                   2
+  number of hash functions:           5
+  number of combined hash functions:  100
+  active at median net size >=:       28
+  sparsifier is active:               false
+-------------------------------------------------------------------------------
+Community Detection Parameters:
+  use community detection in IP:      true
+  maximum louvain-pass iterations:    100
+  minimum quality improvement:        0.0001
+  graph edge weight:                  uniform
+  reuse community structure:          false
+-------------------------------------------------------------------------------
+Coarsening Parameters:
+  Algorithm:                          ml_style
+  max-allowed-weight-multiplier:      1
+  contraction-limit-multiplier:       160
+  hypernode weight fraction:          0.0015625
+  max. allowed hypernode weight:      72
+  contraction limit:                  640
+  Rating Parameters:
+    Rating Function:                  heavy_edge
+    Use Community Structure:          true
+    Heavy Node Penalty:               no_penalty
+    Acceptance Policy:                best_prefer_unmatched
+    Partition Policy:                 normal
+    Fixed Vertex Acceptance Policy:   fixed_vertex_allowed
+-------------------------------------------------------------------------------
+Initial Partitioning Parameters:
+  # IP trials:                        20
+  Mode:                               recursive
+  Technique:                          multilevel
+  Algorithm:                          pool
+  Bin Packing algorithm:              worst_fit
+    early restart on infeasible:      true
+    late restart on infeasible:       true
+IP Coarsening:                        
+Coarsening Parameters:
+  Algorithm:                          ml_style
+  max-allowed-weight-multiplier:      1
+  contraction-limit-multiplier:       150
+  hypernode weight fraction:          determined before IP
+  max. allowed hypernode weight:      determined before IP
+  contraction limit:                  determined before IP
+  Rating Parameters:
+    Rating Function:                  heavy_edge
+    Use Community Structure:          true
+    Heavy Node Penalty:               no_penalty
+    Acceptance Policy:                best_prefer_unmatched
+    Partition Policy:                 normal
+    Fixed Vertex Acceptance Policy:   fixed_vertex_allowed
+IP Local Search:                      
+Local Search Parameters:
+  Algorithm:                          twoway_fm
+  iterations per level:               2147483647
+  stopping rule:                      simple
+  max. # fruitless moves:             50
+  Flow Refinement Parameters:
+    execution policy:                 UNDEFINED
+-------------------------------------------------------------------------------
+Local Search Parameters:
+  Algorithm:                          kway_fm_hyperflow_cutter
+  iterations per level:               2147483647
+  stopping rule:                      adaptive_opt
+  adaptive stopping alpha:            1
+  Flow Refinement Parameters:
+    execution policy:                 exponential
+-------------------------------------------------------------------------------
+ 
+******************************************************************************** 
+*                             Partitioning Result                              * 
+******************************************************************************** 
+Objectives: 
+Hyperedge Cut  (minimize) = 2089 
+SOED           (minimize) = 4380 
+(k-1)          (minimize) = 2291 
+Absorption     (maximize) = 47216.8 
+Imbalance                 = 0.0495558 
+
+Partition sizes and weights:  
+|part 0 | =  9911  w( 0 ) =  9911 
+|part 1 | = 11948  w( 1 ) = 11948 
+|part 2 | = 12051  w( 2 ) = 12051 
+|part 3 | = 12016  w( 3 ) = 12016 
+
+Timings: 
+Partition time                     = 15.196 s 
+  + Preprocessing                  = 1.47687 s 
+    | min hash sparsifier          = 0 s 
+    | community detection          = 1.47687 s 
+  + Coarsening                     = 0.139797 s 
+  + Initial Partitioning           = 1.69013 s 
+    + Coarsening                   = 0.00897139 s 
+          | bisection 1 ( 0 , 3 )        = 0.00598081 s 
+          | bisection 2 ( 2 , 3 )        = 0.00184234 s 
+          | bisection 3 ( 0 , 1 )        = 0.00114824 s 
+    + Initial Partitioning         = 1.47967 s 
+          | bisection 1 ( 0 , 3 )        = 0.693654 s 
+          | bisection 2 ( 2 , 3 )        = 0.466033 s 
+          | bisection 3 ( 0 , 1 )        = 0.319981 s 
+    + Local Search                 = 0.110843 s 
+          | bisection 1 ( 0 , 3 )        = 0.104992 s 
+          | bisection 2 ( 2 , 3 )        = 0.0037465 s 
+          | bisection 3 ( 0 , 1 )        = 0.00210436 s 
+  + Local Search                   = 11.8574 s 
+           | flow refinement       = 10.7752  s 
+  + Postprocessing                 = 0 s 
+    | undo sparsifier              = 0 s 
+ 
+ 
+KaHyPar partition
+cut:2089
+read_imbalance:0.0496015
+2089 2089
+51309
+50513
+PaToH cut size:2458
+read_imbalance:0.00535968
+2458 2458
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
++                    _  __     _   _       ____                               + 
++                   | |/ /__ _| | | |_   _|  _ \ __ _ _ __                    + 
++                   | ' // _` | |_| | | | | |_) / _` | '__|                   + 
++                   | . \ (_| |  _  | |_| |  __/ (_| | |                      + 
++                   |_|\_\__,_|_| |_|\__, |_|   \__,_|_|                      + 
++                                    |___/                                    + 
++                 Karlsruhe Hypergraph Partitioning Framework                 + 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+*******************************************************************************
+*                            Partitioning Context                             *
+*******************************************************************************
+Partitioning Parameters:
+  Hypergraph:                         
+  Partition File:                     
+  Mode:                               direct
+  Objective:                          cut
+  k:                                  4
+  epsilon:                            0.05
+  seed:                               -1
+  # V-cycles:                         0
+  time limit:                         -1s
+  hyperedge size ignore threshold:    1000
+  hyperedge size removal threshold:   4294967295
+  use individual block weights:       false
+  L_opt:                              12828
+  L_max:                              13469
+-------------------------------------------------------------------------------
+Preprocessing Parameters:
+  enable deduplication:               false
+  enable min hash sparsifier:         true
+  enable community detection:         true
+-------------------------------------------------------------------------------
+MinHash Sparsifier Parameters:
+  max hyperedge size:                 1200
+  max cluster size:                   10
+  min cluster size:                   2
+  number of hash functions:           5
+  number of combined hash functions:  100
+  active at median net size >=:       28
+  sparsifier is active:               false
+-------------------------------------------------------------------------------
+Community Detection Parameters:
+  use community detection in IP:      true
+  maximum louvain-pass iterations:    100
+  minimum quality improvement:        0.0001
+  graph edge weight:                  uniform
+  reuse community structure:          false
+-------------------------------------------------------------------------------
+Coarsening Parameters:
+  Algorithm:                          ml_style
+  max-allowed-weight-multiplier:      1
+  contraction-limit-multiplier:       160
+  hypernode weight fraction:          0.0015625
+  max. allowed hypernode weight:      81
+  contraction limit:                  640
+  Rating Parameters:
+    Rating Function:                  heavy_edge
+    Use Community Structure:          true
+    Heavy Node Penalty:               no_penalty
+    Acceptance Policy:                best_prefer_unmatched
+    Partition Policy:                 normal
+    Fixed Vertex Acceptance Policy:   fixed_vertex_allowed
+-------------------------------------------------------------------------------
+Initial Partitioning Parameters:
+  # IP trials:                        20
+  Mode:                               recursive
+  Technique:                          multilevel
+  Algorithm:                          pool
+  Bin Packing algorithm:              worst_fit
+    early restart on infeasible:      true
+    late restart on infeasible:       true
+IP Coarsening:                        
+Coarsening Parameters:
+  Algorithm:                          ml_style
+  max-allowed-weight-multiplier:      1
+  contraction-limit-multiplier:       150
+  hypernode weight fraction:          determined before IP
+  max. allowed hypernode weight:      determined before IP
+  contraction limit:                  determined before IP
+  Rating Parameters:
+    Rating Function:                  heavy_edge
+    Use Community Structure:          true
+    Heavy Node Penalty:               no_penalty
+    Acceptance Policy:                best_prefer_unmatched
+    Partition Policy:                 normal
+    Fixed Vertex Acceptance Policy:   fixed_vertex_allowed
+IP Local Search:                      
+Local Search Parameters:
+  Algorithm:                          twoway_fm
+  iterations per level:               2147483647
+  stopping rule:                      simple
+  max. # fruitless moves:             50
+  Flow Refinement Parameters:
+    execution policy:                 UNDEFINED
+-------------------------------------------------------------------------------
+Local Search Parameters:
+  Algorithm:                          kway_fm_hyperflow_cutter
+  iterations per level:               2147483647
+  stopping rule:                      adaptive_opt
+  adaptive stopping alpha:            1
+  Flow Refinement Parameters:
+    execution policy:                 exponential
+-------------------------------------------------------------------------------
+ 

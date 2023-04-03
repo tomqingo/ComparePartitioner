@@ -4,8 +4,63 @@
 # include "string.h"
 # include "global.h"
 # include <libkahypar.h>
+# include <math.h>
 
 using namespace std;
+
+bool CheckBalance(vector<int> partitions, int k, double imbalance_ratio)
+{
+    unordered_map<int, int> mp;
+
+    for(int i=0; i<partitions.size(); i++)
+    {
+        if(mp.find(partitions[i])==mp.end())
+            mp[partitions[i]]=1;
+        else
+            mp[partitions[i]]++;
+    }
+
+    int total_node = partitions.size();
+
+    bool flag = true;
+    double real_imbalance_ratio = 0.0;
+    for(auto & pair: mp)
+    {
+        //cout<<pair.first<<' '<<pair.second<<endl;
+        //cout<<(total_node*1.0)*(1+imbalance_ratio)/k<<endl;    
+        if(pair.second>(total_node*1.0)*(1+imbalance_ratio)/k)
+            flag = false;
+        
+        if(((pair.second*k*1.0)/total_node-1)>real_imbalance_ratio)
+            real_imbalance_ratio = ((pair.second*k*1.0)/total_node)-1;
+
+    }
+
+    cout<<"read_imbalance:"<<real_imbalance_ratio<<endl;
+    return flag;
+}
+
+bool CheckCut(vector<int> partitions, vector<vector<int>> nets, int cut)
+{
+    int external_net = 0;
+    for(int i=0; i<nets.size(); i++)
+    {
+        for(int j=0; j<nets[i].size(); j++)
+        {
+            if(partitions[nets[i][j]]!=partitions[nets[i][0]])
+            {
+                external_net++;
+                break;
+            }
+        }
+    }
+
+    cout<<external_net<<' '<<cut<<endl;
+    if(external_net == cut)
+        return true;
+    else
+        return false;
+}
 
 int main(int argc, char *argv[])
 {
@@ -81,11 +136,12 @@ int main(int argc, char *argv[])
         nwghts[i] = 1;
 
     int nconst = 1;
-    int useFixCells = 1;
+    int useFixCells = 0;
     PaToH_Initialize_Parameters(&args, PATOH_CUTPART, PATOH_SUGPARAM_QUALITY);
-    args.seed = 1;
+    args.seed = -1;
     args._k = 4;
-    args.init_imbal = 0.05;
+    //args.balance = 1;
+    //args.init_imbal = 0.05;
     args.final_imbal = 0.05;
 
     int nPin = 0;
@@ -122,11 +178,20 @@ int main(int argc, char *argv[])
 
     cout<<"PaToH cut size:"<<cut<<endl;
 
+    vector<int> partitions_patoh;
+    for(int i=0; i<nNode; i++)
+        partitions_patoh.push_back(partvec[i]);
+    if(!CheckBalance(partitions_patoh, args._k, args.final_imbal))
+        cout<<"Balance not pass!"<<endl;
+    
+    if(!CheckCut(partitions_patoh, nets, cut))
+        cout<<"CUT calculation error!"<<endl;
+
     //KaHyPar
     kahypar_context_t* context = kahypar_context_new();
     kahypar_configure_context_from_file(context, "/data/ssd/qluo/compare_partitioner/thirdparty/kahypar/config/cut_kKaHyPar_sea20.ini");
 
-    //kahypar_set_seed(context, 42);
+    //kahypar_set_seed(context, 1);
 
     const kahypar_hypernode_id_t num_vertices = nNode;
     const kahypar_hyperedge_id_t num_hyperedges = nNet;
@@ -168,6 +233,15 @@ int main(int argc, char *argv[])
     */
 
     cout<<"cut:"<<objective<<endl;
+
+    vector<int> partitions_kahypar;
+    for(int i=0; i<nNode; i++)
+        partitions_kahypar.push_back(int(partition[i]));
+    if(!CheckBalance(partitions_kahypar, args._k, imbalance))
+        cout<<"Balance not pass!"<<endl;
+    
+    if(!CheckCut(partitions_kahypar, nets, int(objective)))
+        cout<<"CUT calculation error!"<<endl;
 
     kahypar_context_free(context);
 
